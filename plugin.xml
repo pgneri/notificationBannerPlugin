@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.pgneri.notificationbannerplugin"
+    version="2.0">
+
+    <name>NotificationBanner</name>
+    <description>Notification Banner Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>notification,banner</keywords>
+
+<engines>
+    <engine name="cordova" version=">=3.1.0" />
+</engines>
+
+<js-module src="js/notificationBanner.js" name="notificationBanner">
+    <clobbers target="navigator.notificationBanner" />
+</js-module>
+
+<platform name="ios">
+    <config-file target="config.xml" parent="/*">
+        <feature name="NotificationBanner">
+            <param name="ios-package" value="NotificationBanner" />
+        </feature>
+    </config-file>
+    <framework src="AVFoundation.framework" />
+    <header-file src="platforms/ios/NotificationBanner/Classes/NotificationBanner.h" />
+    <header-file src="platforms/ios/NotificationBanner/Classes/NotificationBannerViewController.h" />
+    <source-file src="platforms/ios/NotificationBanner/Classes/NotificationBanner.m" />
+    <source-file src="platforms/ios/NotificationBanner/Classes/NotificationBannerViewController.m" />
+</platform>
+
+</plugin>
